@@ -31,7 +31,7 @@ let targetPath = process.env.PWD;
 
 exec("pwd", (err, pwd) => {
   if (err) console.log(err);
-  else targetPath = targetPath || pwd;
+  else targetPath = targetPath || pwd.trim();
 });
 
 const sourceEslint = `${sourcePath}/source_lints/eslint.js`;
