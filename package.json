@@ -11,7 +11,7 @@
     "url": "https://github.com/fencer-yd/ts-es-creator-cle/issues/"
   },
   "bin": {
-    "ts-es-creator-cli": "./ts-es-creator.js"
+    "tec": "./ts-es-creator.js"
   },
   "repository": {
     "type": "git",
