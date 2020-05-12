@@ -26,23 +26,26 @@ let questions = [
   },
 ];
 
-const sourceEslint = "./source_lints/eslint.js";
-const sourceTslint = "./source_lints/tslint.js";
-const tsconfig = "./types/tsconfig.json";
+const sourcePath = process.mainModule.path;
+const targetPath = process.env.PWD;
 
-const DIR_PATH = process.mainModule.path;
-const dir = "./lints";
-const vscodeDir = "./.vscode";
-const vscodeFile = "./.vscode/setting.json";
+const sourceEslint = `${sourcePath}/source_lints/eslint.js`;
+const sourceTslint = `${sourcePath}/source_lints/tslint.js`;
+const tsconfig = "/types/tsconfig.json";
+
+const vscodeDir = `${sourcePath}/.vscode`;
+const vscodeFile = `${sourcePath}/.vscode/setting.json`;
+
+const dir = `${targetPath}/lints`;
 
 const tsconfigMove = (callback) => {
-  fs.move(tsconfig, "./tsconfig.json", () => {
+  fs.move(`${sourcePath}${tsconfig}`, `${targetPath}/tsconfig.json`, () => {
     callback && callback();
   });
 };
 
 const packageHandle = () => {
-  fs.readJSON("./package.json", (err, packageObj) => {
+  fs.readJSON(`${targetPath}/package.json`, (err, packageObj) => {
     if (err) console.log(err);
     const package = {
       ...packageObj,
@@ -63,17 +66,23 @@ const packageHandle = () => {
       "eslint src --fix --ext .jsx,.js,.ts,.tsx --config .eslintrc.js";
     package["scripts"]["precommit"] = "npm run lint";
 
-    fs.writeJson("./package.json", package);
+    fs.writeJson(`${targetPath}/package.json`, package);
   });
 };
 
 const allLintHandle = (esType, fileType) => {
   switch (fileType) {
     case "json":
-      fs.move(`./source_lints_all/${esType}JsonLint.js`, "./.eslintrc.js");
+      fs.move(
+        `${sourcePath}/source_lints_all/${esType}JsonLint.js`,
+        `${targetPath}/.eslintrc.js`
+      );
       break;
     case "js":
-      fs.move(`./source_lints_all/jslint.js`, "./.eslintrc.js");
+      fs.move(
+        `${sourcePath}/source_lints_all/jslint.js`,
+        `${targetPath}/.eslintrc.js`
+      );
       break;
   }
 };
@@ -81,7 +90,7 @@ const allLintHandle = (esType, fileType) => {
 const handleVscode = () => {
   fs.ensureDir(vscodeDir).then(() => {
     console.log("vscode文件夹已创建");
-    fs.move(vscodeFile, "./vscode");
+    fs.move(vscodeFile, `${targetPath}/.vscode/setting.json`);
   });
 };
 
