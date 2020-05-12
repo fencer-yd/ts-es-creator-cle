@@ -1,6 +1,6 @@
 {
   "name": "@fencer-yd/ts-es-creator-cli",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "CLI utility to broadcast emails",
   "main": "ts-es-creator.js",
   "author": {
