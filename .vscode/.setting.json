@@ -1,0 +1,17 @@
+{
+  "editor.formatOnSave": true,
+  "eslint.enable": true,
+  "eslint.format.enable": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.debug": true,
+  "eslint.options": {
+    "configFile": ".eslintrc.js",
+    "extensions": [
+      ".js",
+      ".ts",
+      ".jsx",
+      ".ts",
+      "tsx"
+    ]
+  }
+}
