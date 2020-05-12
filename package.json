@@ -3,8 +3,19 @@
   "version": "0.0.1",
   "description": "CLI utility to broadcast emails",
   "main": "ts-es-creator.js",
+  "author": {
+    "name": "fencer-yd",
+    "email": "982039620@qq.com"
+  },
+  "bugs": {
+    "url": "https://github.com/fencer-yd/ts-es-creator-cle/issues/"
+  },
   "bin": {
     "ts-es-creator-cli": "./ts-es-creator.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ git+https://github.com/fencer-yd/ts-es-creator-cle.git"
   },
   "license": "MIT",
   "dependencies": {
