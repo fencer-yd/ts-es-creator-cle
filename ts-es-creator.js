@@ -4,7 +4,7 @@ const inquirer = require("inquirer");
 const fs = require("fs-extra");
 const { exec } = require("child_process");
 
-program.version("0.0.1").parse(process.argv);
+program.version("1.0.4").parse(process.argv);
 
 let questions = [
   {
