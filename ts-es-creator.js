@@ -41,10 +41,10 @@ const tsconfig = "/types/tsconfig.json";
 const vscodeDir = `${sourcePath}/.vscode`;
 const vscodeFile = `${sourcePath}/.vscode/setting.json`;
 
-const dir = `${targetPath}/lints`;
+const dir = `./lints`;
 
 const tsconfigMove = (callback) => {
-  fs.move(`${sourcePath}${tsconfig}`, `${targetPath}/tsconfig.json`, () => {
+  fs.copy(`${sourcePath}${tsconfig}`, `${targetPath}/tsconfig.json`, () => {
     callback && callback();
   });
 };
@@ -78,13 +78,13 @@ const packageHandle = () => {
 const allLintHandle = (esType, fileType) => {
   switch (fileType) {
     case "json":
-      fs.move(
+      fs.copy(
         `${sourcePath}/source_lints_all/${esType}JsonLint.js`,
         `${targetPath}/.eslintrc.js`
       );
       break;
     case "js":
-      fs.move(
+      fs.copy(
         `${sourcePath}/source_lints_all/jslint.js`,
         `${targetPath}/.eslintrc.js`
       );
@@ -95,7 +95,7 @@ const allLintHandle = (esType, fileType) => {
 const handleVscode = () => {
   fs.ensureDir(vscodeDir).then(() => {
     console.log("vscode文件夹已创建");
-    fs.move(vscodeFile, `${targetPath}/.vscode/setting.json`);
+    fs.copy(vscodeFile, `${targetPath}/.vscode/setting.json`);
   });
 };
 
@@ -104,13 +104,13 @@ inquirer.prompt(questions).then(async function (ans) {
   fs.ensureDir(dir)
     .then(() => {
       console.log("文件夹lints已创建完毕");
-      fs.move(lint_path, `${dir}/${eslint_type}lint.${file_type}`, (err) => {
+      fs.copy(lint_path, `${dir}/${eslint_type}lint.${file_type}`, (err) => {
         if (err) console.log("你的文件没有找到，看看是不是lint路径写的不对");
         else {
           console.log(`${eslint_type}lint文件迁移成功`);
           switch (eslint_type) {
             case "es":
-              fs.move(sourceTslint, `${dir}/tslint.js`, (err) => {
+              fs.copy(sourceTslint, `${dir}/tslint.js`, (err) => {
                 if (err) !console.log(err);
                 else {
                   console.log("tslint文件迁移成功");
@@ -118,7 +118,7 @@ inquirer.prompt(questions).then(async function (ans) {
               });
               break;
             case "ts":
-              fs.move(sourceEslint, `${dir}/eslint.js`, (err) => {
+              fs.copy(sourceEslint, `${dir}/eslint.js`, (err) => {
                 if (err) !console.log(err);
                 else {
                   console.log("tslint文件迁移成功");
