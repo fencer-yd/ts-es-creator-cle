@@ -7,7 +7,7 @@
 npm:
 
 ```shell
-$ npm install -g @fencer-yd/ts-es-creator
+$ npm install -g @fencer-yd/ts-es-creator-cli
 ```
 
 ## 使用
