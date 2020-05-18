@@ -49,6 +49,23 @@ module.exports = {
         log(info, "ok");
       }
     });
+    exec("npm i eslint-plugin-react@latest --save-dev", (err, info, warn) => {
+      if (err) log(err, "err");
+      else {
+        log(warn, "warn");
+        log(info, "ok");
+      }
+    });
+    exec(
+      "npm i eslint-plugin-prettier@latest --save-dev",
+      (err, info, warn) => {
+        if (err) log(err, "err");
+        else {
+          log(warn, "warn");
+          log(info, "ok");
+        }
+      }
+    );
     exec("npm i prettier@latest --save-dev", (err, info, warn) => {
       if (err) log(err, "err");
       else {
