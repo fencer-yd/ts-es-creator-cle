@@ -1,8 +1,8 @@
 {
   "name": "@fencer-yd/ts-es-creator-cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "CLI utility to broadcast emails",
-  "main": "ts-es-creator.js",
+  "main": "index.js",
   "author": {
     "name": "fencer-yd",
     "email": "982039620@qq.com"
@@ -11,7 +11,7 @@
     "url": "https://github.com/fencer-yd/ts-es-creator-cle/issues/"
   },
   "bin": {
-    "tec": "./ts-es-creator.js"
+    "tec": "./index.js"
   },
   "repository": {
     "type": "git",
@@ -20,16 +20,11 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^5.1.0",
+    "console-emoji": "0.0.2",
     "fs-extra": "^9.0.0",
     "inquirer": "^7.1.0"
   },
   "devDependencies": {
     "child_process": "^1.0.2"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src --ext .jsx,.js,.ts,.tsx --config .eslintrc.js",
-    "fix": "eslint src --fix --ext .jsx,.js,.ts,.tsx --config .eslintrc.js",
-    "precommit": "npm run lint"
   }
 }
