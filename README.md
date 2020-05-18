@@ -14,9 +14,7 @@ $ npm install -g @fencer-yd/ts-es-creator-cli
 
 ```shell
 $ tec ## 部分需要sudo
-$ ?>请选择当前存在的lint类型 选择现有的lint类型
-$ ?>当前lint文件类型 js或者是json
-$ ?>当前lint文件名 例如.eslintrc.js
+$ ?>😁请输入lint文件当前路径 例如./.eslintrc.js
 回车
 ```
 
