@@ -1,7 +1,7 @@
 {
   "name": "@fencer-yd/ts-es-creator-cli",
-  "version": "1.0.6",
-  "description": "CLI utility to broadcast emails",
+  "version": "1.0.7",
+  "description": "es 向 ts 渐进工具",
   "main": "index.js",
   "author": {
     "name": "fencer-yd",
