@@ -1,3 +1,5 @@
+/** @format */
+
 module.exports = {
   env: {
     browser: true,
@@ -50,24 +52,20 @@ module.exports = {
       // 代码块的括号是否需要换行
       "error",
       "1tbs", // 需要保持一致
-      {
-        allowSingleLine: true, // 简单表达式不需要换行
-      },
     ],
     camelcase: ["error", { properties: "always" }], // 驼峰命名，允许初次变量不是驼峰需要强制转换为驼峰
     "capitalized-comments": ["error"], // 注释不允许以小写字母开头
     "class-methods-use-this": ["warn", { exceptMethods: ["construct"] }], // 不允许使用this在方法内部
-    "comma-dangle": ["error", "always"], // 强制逗号尾随
+    "comma-dangle": ["error", "always-multiline"], // 强制逗号尾随
     "comma-spacing": [
       // 逗号之间加空格
       "error",
       {
-        before: true,
+        before: false,
         after: true,
       },
     ],
     "comma-style": ["error", "last"], // 逗号可以出现在最后
-    complexity: ["error", 3], // 条件判断不能超过3个
     "computed-property-spacing": ["error", "never"], // 计算属性字段之间不允许有空格
     "consistent-return": [
       "error",
@@ -77,7 +75,6 @@ module.exports = {
     ],
     "consistent-this": ["error", "self"], // 允许将this赋值给self
     "constructor-super": "error", // class extend construct 需要些  super
-    curly: ["error", "multi-or-nest", "consistent"], // 多行表达式构成的代码块，需要 用大括号
     "default-case-last": "error", // 将default case 放在最后一行
     "default-case": "error", // 需要default case
     "default-param-last": "error", // 带默认数据的传参需要放到最后一个
@@ -93,12 +90,9 @@ module.exports = {
     "function-call-argument-newline": ["error", "consistent"], // 保持传参格式一致，换行或者不换行
     "function-paren-newline": ["error", { minItems: 3 }], // 超过三个参数，参数另起一行
     "generator-star-spacing": ["error", { before: true, after: false }], // function *generator() {}
-    "generator-star": ["error", "end"], // function *generator() {}
     "getter-return": "error", // get方法必须返回
     "guard-for-in": "error", // for in 需要校验hasOwnProperty
-    "id-blacklist": ["error", "callback"], // 命名黑名单
     "implicit-arrow-linebreak": ["error", "beside"], // 使用隐式返回值箭头函数体的位置
-    "init-declarations": ["error", "never"], // 允许初始化变量
     "jsx-quotes": ["error", "prefer-double"], // 元素属性使用"
     "key-spacing": [
       "error",
@@ -203,7 +197,6 @@ module.exports = {
     "no-tabs": "error", // 禁止使用\t
     "no-this-before-super": "error", // 禁止this在super之前使用
     "no-throw-literal": "error", // 不允许使用throw
-    "eslint no-trailing-spaces": "error", //行尾禁止尾随空格
     "no-undef-init": "error", //禁止将undefined作为初始值赋值
     "no-unexpected-multiline": "error", //禁止混淆多行表达式
     "no-unmodified-loop-condition": "error", //禁止使用未经修改的循环条件
@@ -227,23 +220,11 @@ module.exports = {
     "no-warning-comments": "error", // 禁止警告注释
     "no-whitespace-before-property": "error", // 禁止在属性前面使用空格
     "no-with": "error", // 不是用with
-    "no-wrap-func": "error", // 禁止在函数周围添加不必要的括号
     "nonblock-statement-body-position": "error", // 强制执行单行语句的位置
     "object-curly-newline": ["error", { consistent: true }], // 在对象内的换行保持一致
-    "object-curly-spacing": [
-      "error",
-      "never",
-      { objectsInObjects: true, arraysInObjects: false },
-    ], // 对象内的空格控制
-    "object-property-newline": ["error", "nerver"], // 强制将对象属性放在单独的行上
     "one-var-declaration-per-line": "error", // 每一行声明一个变量
     "operator-assignment": "error", // 尽量简写操作
     "operator-linebreak": ["error", "before"], // 行数过长，操作符放在行首
-    "padding-line-between-statements": [
-      // 填充
-      "error",
-      { blankLine: "always", next: "return" },
-    ],
     "prefer-arrow-callback": "error", // 使用箭头函数回调
     "prefer-const": "error", //如果不重新分配建议使用const
     "prefer-destructuring": "error", // 首选从对象和数组中进行解构
@@ -252,7 +233,6 @@ module.exports = {
     "prefer-numeric-literals": "error", // 禁止使用parseint和number.parseint去处理非10进制
     "prefer-promise-reject-errors": "error", // reject中返回Error
     "prefer-regex-literals": "error", // 禁止使用正则表达式的构造函数来实例化已有的正则
-    "prefer-rest-params": "error", // 使用rest代替arguments
     "prefer-template": "error", // 建议使用模板字符串
     "quote-props": ["error", "as-needed"], //按需给key加引号
     quotes: ["error", "single"], // 使用单引号
@@ -277,18 +257,6 @@ module.exports = {
     "semi-spacing": ["error", { before: false, after: true }], // 在分号后加空格
     "semi-style": ["error", "last"], // 分号只能出现在行尾
     semi: ["error", "always"], // 强制加分号
-    "sort-imports": [
-      // import 排序
-      "error",
-      {
-        ignoreCase: false,
-        ignoreDeclarationSort: false,
-        ignoreMemberSort: false,
-        memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
-      },
-    ],
-    "space-after-function-name": ["error", "never"], // function name后不需要空格
-    "space-after-keywords": ["error", "always"], // 关键词后加空格
     "space-before-blocks": ["error", "always"], // 代码块前括号前面需要加空格
     "space-before-function-paren": [
       // 函数括号前的空格
@@ -299,22 +267,10 @@ module.exports = {
         asyncArrow: "always",
       },
     ],
-    "space-before-function-parentheses": [
-      "error",
-      {
-        anonymous: "always",
-        named: "never",
-      },
-    ],
-    "space-before-keywords": ["error", "always"], // 关键字前面需要加空格
-    "space-in-brackets": ["error", "never"], // 在[] {}使用一致的间距
     "space-in-parens": ["error", "never"], // 在函数参数调用中使用一致的间距
     "space-infix-ops": "error", // 要求在中缀运算符之间加空格
-    "space-return-throw-case": "error", // 需要在return，throw和case关键字后加空格
     "space-unary-ops": "error", // 一元操作符之间不需要空格
-    "space-unary-word-ops": "error", // 一元操作符后需要加空格
     "spaced-comment": ["error", "always"], // 注释后面需要加空格
-    "spaced-line-comment": ["error", "always"], // 在行注释后强制保持一致的间距
     "switch-colon-spacing": ["error", { after: true, before: false }], // switch case 空格处理
     "symbol-description": "error", // 不能实例化空
     "use-isnan": "error", // 用isNaN 来判断NaN
